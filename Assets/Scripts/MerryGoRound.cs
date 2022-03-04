@@ -11,10 +11,14 @@ public class MerryGoRound : MonoBehaviour
 {
     
     //public -fields-
-    // public List<GameObject> SeatPrefabs = new List<GameObject>();
-    // public int NumberOfSeats = 2;
+    public List<GameObject> SeatPrefabs = new List<GameObject>();
+    public int NumberOfSeats = 4;
     public Vector3 RotationAmount = new Vector3();
 
+    private int num;
+    private bool truth;
+    private string name;
+    
     public List<GameObject> _Seats = new List<GameObject>();
     
     //private members
@@ -29,7 +33,7 @@ public class MerryGoRound : MonoBehaviour
     void Start()
     {
         //fill our list of seats with a bunch of GameObjects
-        //_Seats = RandomSeatsFromPrefabs(NumberOfSeats, SeatPrefabs);
+        _Seats = RandomSeatsFromPrefabs(NumberOfSeats, SeatPrefabs);
     }
 
     List<GameObject> RandomSeatsFromPrefabs(int numOfSeats,List<GameObject> seatPrefabs)
@@ -43,13 +47,16 @@ public class MerryGoRound : MonoBehaviour
             var randomSeatObject = RandomSeat(seatPrefabs);
             
             //Use Instaniate to create *instances*
-            var newSeat = Instantiate(randomSeatObject);
+            //var newSeat = Instantiate(randomSeatObject);
             
-            /*
-             with rotation
-            var translationOffset = new Vector3(10f * Mathf.Sin((float) i / numOfSeats * Mathf.PI), 0f, 10f * Mathf.Cos((float) i / numOfSeats * Mathf.PI)); 
-            var newSeat = Instantiate(randomSeatObject, transform.position + translationOffset, Quaternion.identity, transform);
-            */
+            
+            //with rotated position, but not oriented
+            var angle = (float) i / numOfSeats * Mathf.PI * 2f;
+            var translationOffset = new Vector3(10f * Mathf.Sin(angle), 0f, 10f * Mathf.Cos(angle)); 
+            //orientation
+            var orientation = Quaternion.AngleAxis((float)i / numOfSeats * 360f, Vector3.up);
+            var newSeat = Instantiate(randomSeatObject, transform.position + translationOffset, orientation, transform);
+            
             
             newSeats.Add(newSeat);
         }
