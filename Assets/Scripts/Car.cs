@@ -24,6 +24,8 @@ public class Car : MonoBehaviour
 
     }
 
+    //This requires that there is a rigidbody and collider component
+    //The collider *must* be a trigger
     private void OnTriggerEnter(Collider other)
     {
         //reset position if we collide with the wall
@@ -34,10 +36,6 @@ public class Car : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other)
-    {
-        Debug.Log("Collision");
-    }
 
 }
 

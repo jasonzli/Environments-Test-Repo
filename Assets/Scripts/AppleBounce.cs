@@ -9,8 +9,9 @@ public class AppleBounce : MonoBehaviour
     public float height;
     public float speed;
     public float offset;
-    
+
     // Start is called before the first frame update
+    //This function runs *only once*
     void Start()
     {
         //I can use transform.Translate
@@ -19,16 +20,19 @@ public class AppleBounce : MonoBehaviour
 
         //Other way, is to directly set the value
         //transform.position = direction;
-        
-        
+
+
     }
 
     // Update is called once per frame
+    // This function runs a lot
     void Update()
     {
-        Vector3 newPosition = new Vector3(transform.position.x, 
+
+        Vector3 newPosition = new Vector3(transform.position.x,
             // our new height = height * sin( speed * x + offset)
-            height * Mathf.Sin ( speed * Time.frameCount + offset ),
+            //We use frameCount because we're tracking time forward
+            height * Mathf.Sin(speed * Time.frameCount + offset),
             transform.position.z);
         transform.position = newPosition;
     }

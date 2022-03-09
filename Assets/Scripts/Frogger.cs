@@ -25,15 +25,7 @@ public class Frogger : MonoBehaviour
     }
 
 
-    // void OnCollisionEnter(Collision collision)
-    // {
-    //     print($"Collision with {collision.gameObject.name}");
-    //     if (collision.gameObject.CompareTag("Car"))
-    //     {
-    //         // Destroy(gameObject);
-    //     }
-    // }
-
+    //Trigger requires collider and rigidbody, and the collider must be a trigger
     void OnTriggerEnter(Collider volume)
     {
         print($"Collision with {volume.gameObject.name}");
