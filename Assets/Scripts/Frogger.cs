@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class Frogger : MonoBehaviour
 {
+    public float SteppingSize = 1f;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("W"))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            transform.Translate(0, 0, 1);
+            transform.Translate(Vector3.forward * SteppingSize);
+        }
+        //Make it go backwards
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            transform.Translate(-Vector3.forward * SteppingSize);
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     print($"Collision with {collision.gameObject.name}");
+    //     if (collision.gameObject.CompareTag("Car"))
+    //     {
+    //         // Destroy(gameObject);
+    //     }
+    // }
+
+    void OnTriggerEnter(Collider volume)
     {
-        if (collision.gameObject.CompareTag("Car"))
-        {
-            Destroy(gameObject);
-        }
+        print($"Collision with {volume.gameObject.name}");
     }
 }

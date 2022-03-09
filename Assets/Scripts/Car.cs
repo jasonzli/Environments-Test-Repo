@@ -4,33 +4,77 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    public Vector2 SpeedMinMax = new Vector2(.1f, 2f);
-    private Vector3 _startPosition;
-    private float _speed;
+    public float Speed = 5f;
 
-    // Start is called before the first frame update
+    private Vector3 _startingPosition;
+
+
     void Start()
     {
-        Setup();
+        //Store the starting position at the beginning
+        _startingPosition = transform.position;
     }
 
-    void Setup()
-    {
-        _startPosition = transform.position;
-        _speed = Random.Range(SpeedMinMax.x, SpeedMinMax.y);
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * _speed * Time.deltaTime);
+        //Time.deltaTime converts values into units per second
+        //So we can use Speed to determine how fast the car moves in units per second
+        //while using the Vector3.left to choose the direction of the car
+        transform.Translate(Vector3.left * Speed * Time.deltaTime);
+
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        //reset position if we collide with the wall
+        if (other.gameObject.name == "Wall" ||
+            other.gameObject.CompareTag("Wall"))
         {
-            transform.position = _startPosition;
+            transform.position = _startingPosition;
         }
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// public Vector2 SpeedMinMax = new Vector2(.1f, 2f);
+// private Vector3 _startPosition;
+// private float _speed;
+
+// // Start is called before the first frame update
+// void Start()
+// {
+//     Setup();
+// }
+
+// void Setup()
+// {
+//     _startPosition = transform.position;
+//     _speed = Random.Range(SpeedMinMax.x, SpeedMinMax.y);
+// }
+
+// // Update is called once per frame
+// void Update()
+// {
+//     transform.Translate(Vector3.left * _speed * Time.deltaTime);
+// }
+
+// void OnCollisionEnter(Collision collision)
+// {
+//     if (collision.gameObject.CompareTag("Wall"))
+//     {
+//         transform.position = _startPosition;
+//     }
+// }
+
