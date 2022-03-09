@@ -34,6 +34,10 @@ public class Car : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Collision");
+    }
 
 }
 

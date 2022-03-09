@@ -5,7 +5,12 @@ using UnityEngine;
 public class Frogger : MonoBehaviour
 {
     public float SteppingSize = 1f;
+    public Vector3 _startPosition;
 
+    void Start()
+    {
+        _startPosition = transform.position;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
@@ -32,5 +37,9 @@ public class Frogger : MonoBehaviour
     void OnTriggerEnter(Collider volume)
     {
         print($"Collision with {volume.gameObject.name}");
+        if (volume.gameObject.CompareTag("Car"))
+        {
+            transform.position = _startPosition;
+        }
     }
 }
