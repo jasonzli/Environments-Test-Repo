@@ -628,6 +628,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4551721782223285435, guid: f4b26da901cc0a14c8181813dc4af5d0, type: 3}
+      propertyPath: sceneName
+      value: Scene 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551721782223285435, guid: f4b26da901cc0a14c8181813dc4af5d0, type: 3}
+      propertyPath: transitionAnimation
+      value: 
+      objectReference: {fileID: 710030878}
     - target: {fileID: 8563196118255978857, guid: f4b26da901cc0a14c8181813dc4af5d0, type: 3}
       propertyPath: sceneName
       value: Scene 1

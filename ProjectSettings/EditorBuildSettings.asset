@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Lesson Scenes/Scene Transition/Scene 1.unity
-    guid: 1a87dca9e3486ee4284e64ef10a005bb
+    path: Assets/Lesson Scenes/Scene Transitions - In Class/Scene A.unity
+    guid: e0fcb5bd6defc7d4c922ac3abe3d2296
+  - enabled: 1
+    path: Assets/Lesson Scenes/Scene Transitions - In Class/Scene B.unity
+    guid: 5c5745ef205d8be4085cd68bb60ae757
   - enabled: 1
     path: Assets/Lesson Scenes/Scene Transition/Scene 2.unity
-    guid: 3c98458cbfa331449acd7a1eecb3212e
+    guid: 11a865929ec516545800decbc7bfaf95
+  - enabled: 1
+    path: Assets/Lesson Scenes/Scene Transition/Scene 1.unity
+    guid: 1a87dca9e3486ee4284e64ef10a005bb
   m_configObjects: {}
